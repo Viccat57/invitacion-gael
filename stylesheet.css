@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Lilita One&display=swap');
-body {
-	background-color: #fedd5a;
-	overflow-x: hidden;
-}
 
+body {
+	background-color: #000000;
+	overflow-x: hidden;
+	transition: background-color 1.5s ease; 
+}
 .container {
 	display: none;
 }
@@ -1429,10 +1430,11 @@ o @keyframes bannar_come {
 	border-color: #466baf;
 	padding: 10px;
 	text-transform: uppercase;
-	font-family: 'Signika', sans-serif;
+	font-family: 'Lilita One',cursive;
 	font-weight: 700;
 	color: #fff;
-	background-color: #466baf;
+	background-color: #c23341;
+
 }
 
 .btn-primary:hover,
@@ -1441,8 +1443,8 @@ o @keyframes bannar_come {
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
 	border-color: #fff;
-	color: #fff;
-	background-color: #466baf;
+	color: #000;
+	background-color: #fedd5a;
 }
 
 .message-wrap {
@@ -1508,6 +1510,24 @@ o @keyframes bannar_come {
 
 .navbar-fixed-bottom {
   display: none !important;
+}
+
+#start-invitation {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 9999; /* Asegura que esté por encima de todo */
+	font-size: 24px;
+	padding: 15px 30px;
+	border-radius: 10px;
+	border: 2px solid #fff;
+	box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+	width: auto; 
+    max-width: 85vw;
+    white-space: normal;
+    padding: 15px 20px;
+    font-size: 1.2rem;
 }
 /*controlling tablet width*/
 /*@media only screen and (max-width: 720px){

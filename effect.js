@@ -127,22 +127,15 @@ $(document).ready(function () {
       $('#bulb_green').addClass('bulb-glow-green');
       $('#bulb_pink').addClass('bulb-glow-pink');
       $('#bulb_orange').addClass('bulb-glow-orange');
-      //$('body').addClass('peach');
     }, 1000);
 
     setTimeout(function () {
-      var audio = $('.song')[0];
-      if (audio) {
-        audio.play().catch(function () {});
-        $('#bulb_yellow').addClass('bulb-glow-yellow-after');
-        $('#bulb_red').addClass('bulb-glow-red-after');
-        $('#bulb_blue').addClass('bulb-glow-blue-after');
-        $('#bulb_green').addClass('bulb-glow-green-after');
-        $('#bulb_pink').addClass('bulb-glow-pink-after');
-        $('#bulb_orange').addClass('bulb-glow-orange-after');
-        //$('body').css('background-color', '#FFF');
-        //$('body').addClass('peach-after');
-      }
+      $('#bulb_yellow').addClass('bulb-glow-yellow-after');
+      $('#bulb_red').addClass('bulb-glow-red-after');
+      $('#bulb_blue').addClass('bulb-glow-blue-after');
+      $('#bulb_green').addClass('bulb-glow-green-after');
+      $('#bulb_pink').addClass('bulb-glow-pink-after');
+      $('#bulb_orange').addClass('bulb-glow-orange-after');
     }, 4000);
 
     setTimeout(function () {
@@ -166,5 +159,19 @@ $(document).ready(function () {
     }, 24000);
   }
 
-  startSequence();
+$('#start-invitation').one('click', function () {
+    // Restaurar el color amarillo original, el CSS hará que sea suave
+    $('body').css('background-color', '#fedd5a');
+
+    var audio = $('.song')[0];
+
+    if (audio) {
+      audio.load();
+      audio.currentTime = 0;
+      audio.play().catch(function () {});
+    }
+
+    $(this).fadeOut(300);
+    startSequence();
+  });
 });
