@@ -1499,7 +1499,7 @@ o @keyframes bannar_come {
   }
 
   .cake-cover {
-    margin-top: 10px;
+    margin-top: -100px;
   }
 
   .message {
@@ -1528,6 +1528,30 @@ o @keyframes bannar_come {
     white-space: normal;
     padding: 15px 20px;
     font-size: 1.2rem;
+}
+
+.final-message-text {
+  display: none;
+  flex: 1 1 420px;
+  text-align: left;
+  font-family: 'Lilita One', cursive;
+  margin-top: 250px;
+}
+
+.final-message-text p {
+  display: none;
+  margin-left: 0;
+  font-family: 'Lilita One', cursive;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #c23341;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 720px) {
+  .final-message-text {
+    text-align: center;
+  }
 }
 /*controlling tablet width*/
 /*@media only screen and (max-width: 720px){

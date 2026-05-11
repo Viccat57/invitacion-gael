@@ -85,30 +85,41 @@ $(document).ready(function () {
     $('.message').stop(true, true).fadeIn(200);
     $('.mickey-speaks').stop(true, true).fadeIn(200);
 
-    var $paragraphs = $('.message-text p');
+    var $speechParagraphs = $('.message-text p');
+    var $finalBox = $('.final-message-text');
+    var $finalParagraphs = $('.final-message-text p');
+
     var current = 0;
     var delay = 2200;
-    var finalPause = 3500;
+    var finalPause = 2500;
 
-    $paragraphs.stop(true, true).hide();
+    $speechParagraphs.stop(true, true).hide();
+    $finalBox.stop(true, true).hide();
+    $finalParagraphs.stop(true, true).hide();
 
     function showCurrent() {
-      if (current < $paragraphs.length) {
-        $paragraphs.eq(current).fadeIn(250, function () {
+      if (current < $speechParagraphs.length) {
+        $speechParagraphs.eq(current).fadeIn(250, function () {
           current++;
 
-          if (current < $paragraphs.length) {
+          if (current < $speechParagraphs.length) {
             setTimeout(showCurrent, delay);
           } else {
             setTimeout(function () {
               $('.mickey-speaks').stop(true, true).fadeOut(500);
-              $('.message').stop(true, true).fadeOut(500, function () {
-                $paragraphs.hide();
+
+              $('.message-text').stop(true, true).fadeOut(500, function () {
+                $speechParagraphs.hide();
+
                 $('.cake').fadeIn('fast');
                 $('.balloons').fadeIn('slow');
                 $('.balloon-border').fadeIn('slow');
                 $('.bannar').fadeIn('slow');
                 $('.row').fadeIn('slow');
+
+                $finalBox.fadeIn(400, function () {
+                  $finalParagraphs.fadeIn(400);
+                });
               });
             }, finalPause);
           }
@@ -159,12 +170,10 @@ $(document).ready(function () {
     }, 24000);
   }
 
-$('#start-invitation').one('click', function () {
-    // Restaurar el color amarillo original, el CSS hará que sea suave
+  $('#start-invitation').one('click', function () {
     $('body').css('background-color', '#fedd5a');
 
     var audio = $('.song')[0];
-
     if (audio) {
       audio.load();
       audio.currentTime = 0;
